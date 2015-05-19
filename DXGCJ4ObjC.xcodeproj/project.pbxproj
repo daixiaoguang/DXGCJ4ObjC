@@ -10,6 +10,7 @@
 		B8B662801B0B3C7700C4F36D /* DXGCJ4ObjC.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B8B6627F1B0B3C7700C4F36D /* DXGCJ4ObjC.h */; };
 		B8B662821B0B3C7700C4F36D /* DXGCJ4ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B662811B0B3C7700C4F36D /* DXGCJ4ObjC.m */; };
 		B8B662881B0B3C7700C4F36D /* libDXGCJ4ObjC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8B6627C1B0B3C7700C4F36D /* libDXGCJ4ObjC.a */; };
+		B8B662981B0B3CB700C4F36D /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = B8B662971B0B3CB700C4F36D /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,8 @@
 		B8B662811B0B3C7700C4F36D /* DXGCJ4ObjC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DXGCJ4ObjC.m; sourceTree = "<group>"; };
 		B8B662871B0B3C7700C4F36D /* DXGCJ4ObjCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DXGCJ4ObjCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B6628D1B0B3C7700C4F36D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8B662961B0B3CB700C4F36D /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		B8B662971B0B3CB700C4F36D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +68,8 @@
 		B8B662731B0B3C7700C4F36D = {
 			isa = PBXGroup;
 			children = (
+				B8B662961B0B3CB700C4F36D /* LICENSE */,
+				B8B662971B0B3CB700C4F36D /* README.md */,
 				B8B6627E1B0B3C7700C4F36D /* DXGCJ4ObjC */,
 				B8B6628B1B0B3C7700C4F36D /* DXGCJ4ObjCTests */,
 				B8B6627D1B0B3C7700C4F36D /* Products */,
@@ -193,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8B662981B0B3CB700C4F36D /* README.md in Sources */,
 				B8B662821B0B3C7700C4F36D /* DXGCJ4ObjC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
