@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B8B662801B0B3C7700C4F36D /* DXGCJ4ObjC.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B8B6627F1B0B3C7700C4F36D /* DXGCJ4ObjC.h */; };
-		B8B662821B0B3C7700C4F36D /* DXGCJ4ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B662811B0B3C7700C4F36D /* DXGCJ4ObjC.m */; };
 		B8B662881B0B3C7700C4F36D /* libDXGCJ4ObjC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8B6627C1B0B3C7700C4F36D /* libDXGCJ4ObjC.a */; };
 		B8B662981B0B3CB700C4F36D /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = B8B662971B0B3CB700C4F36D /* README.md */; };
+		B8B6629B1B0B3DF000C4F36D /* DXGCJCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B6629A1B0B3DF000C4F36D /* DXGCJCollection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +29,6 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				B8B662801B0B3C7700C4F36D /* DXGCJ4ObjC.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,12 +36,12 @@
 
 /* Begin PBXFileReference section */
 		B8B6627C1B0B3C7700C4F36D /* libDXGCJ4ObjC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDXGCJ4ObjC.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8B6627F1B0B3C7700C4F36D /* DXGCJ4ObjC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DXGCJ4ObjC.h; sourceTree = "<group>"; };
-		B8B662811B0B3C7700C4F36D /* DXGCJ4ObjC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DXGCJ4ObjC.m; sourceTree = "<group>"; };
 		B8B662871B0B3C7700C4F36D /* DXGCJ4ObjCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DXGCJ4ObjCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B6628D1B0B3C7700C4F36D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8B662961B0B3CB700C4F36D /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		B8B662971B0B3CB700C4F36D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B8B662991B0B3DF000C4F36D /* DXGCJCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXGCJCollection.h; sourceTree = "<group>"; };
+		B8B6629A1B0B3DF000C4F36D /* DXGCJCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXGCJCollection.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,8 +86,8 @@
 		B8B6627E1B0B3C7700C4F36D /* DXGCJ4ObjC */ = {
 			isa = PBXGroup;
 			children = (
-				B8B6627F1B0B3C7700C4F36D /* DXGCJ4ObjC.h */,
-				B8B662811B0B3C7700C4F36D /* DXGCJ4ObjC.m */,
+				B8B662991B0B3DF000C4F36D /* DXGCJCollection.h */,
+				B8B6629A1B0B3DF000C4F36D /* DXGCJCollection.m */,
 			);
 			path = DXGCJ4ObjC;
 			sourceTree = "<group>";
@@ -199,7 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8B662981B0B3CB700C4F36D /* README.md in Sources */,
-				B8B662821B0B3C7700C4F36D /* DXGCJ4ObjC.m in Sources */,
+				B8B6629B1B0B3DF000C4F36D /* DXGCJCollection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
