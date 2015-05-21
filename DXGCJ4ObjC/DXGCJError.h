@@ -22,21 +22,12 @@
 
 #import <Foundation/Foundation.h>
 
-@class DXGCJError;
+@interface DXGCJError : NSObject
 
-@interface DXGCJCollection : NSObject
+@property (copy, nonatomic) NSString *title;
+@property (copy, nonatomic) NSString *code;
+@property (copy, nonatomic) NSString *message;
 
-@property (copy,   nonatomic) NSString     *version;
-@property (copy,   nonatomic) NSString     *href;
-@property (strong, nonatomic) NSArray      *links;
-@property (strong, nonatomic) NSArray      *items;
-@property (strong, nonatomic) NSArray      *queries;
-@property (strong, nonatomic) DXGCJError   *error;
-
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary
-                             error:(NSError **)error;
-
-- (instancetype)initWithData:(NSData *)data
-                       error:(NSError **)error;
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

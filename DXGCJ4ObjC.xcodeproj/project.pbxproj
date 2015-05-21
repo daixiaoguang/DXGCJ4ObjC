@@ -11,6 +11,7 @@
 		B8B662981B0B3CB700C4F36D /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = B8B662971B0B3CB700C4F36D /* README.md */; };
 		B8B6629B1B0B3DF000C4F36D /* DXGCJCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B6629A1B0B3DF000C4F36D /* DXGCJCollection.m */; };
 		B8BFA9E81B0DB1EB00CF0003 /* DXGCJLink.m in Sources */ = {isa = PBXBuildFile; fileRef = B8BFA9E71B0DB1EB00CF0003 /* DXGCJLink.m */; };
+		B8BFA9EB1B0E130900CF0003 /* DXGCJError.m in Sources */ = {isa = PBXBuildFile; fileRef = B8BFA9EA1B0E130900CF0003 /* DXGCJError.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,8 @@
 		B8B6629A1B0B3DF000C4F36D /* DXGCJCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXGCJCollection.m; sourceTree = "<group>"; };
 		B8BFA9E61B0DB1EB00CF0003 /* DXGCJLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXGCJLink.h; sourceTree = "<group>"; };
 		B8BFA9E71B0DB1EB00CF0003 /* DXGCJLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXGCJLink.m; sourceTree = "<group>"; };
+		B8BFA9E91B0E130900CF0003 /* DXGCJError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXGCJError.h; sourceTree = "<group>"; };
+		B8BFA9EA1B0E130900CF0003 /* DXGCJError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXGCJError.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +96,8 @@
 				B8B6629A1B0B3DF000C4F36D /* DXGCJCollection.m */,
 				B8BFA9E61B0DB1EB00CF0003 /* DXGCJLink.h */,
 				B8BFA9E71B0DB1EB00CF0003 /* DXGCJLink.m */,
+				B8BFA9E91B0E130900CF0003 /* DXGCJError.h */,
+				B8BFA9EA1B0E130900CF0003 /* DXGCJError.m */,
 			);
 			path = DXGCJ4ObjC;
 			sourceTree = "<group>";
@@ -202,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8BFA9E81B0DB1EB00CF0003 /* DXGCJLink.m in Sources */,
+				B8BFA9EB1B0E130900CF0003 /* DXGCJError.m in Sources */,
 				B8B662981B0B3CB700C4F36D /* README.md in Sources */,
 				B8B6629B1B0B3DF000C4F36D /* DXGCJCollection.m in Sources */,
 			);

@@ -22,6 +22,7 @@
 
 #import "DXGCJCollection.h"
 #import "DXGCJLink.h"
+#import "DXGCJError.h"
 
 @interface DXGCJCollection ()
 
@@ -49,17 +50,25 @@
             return nil;
         }
         
-        _version = [dictionary[@"collection"][@"version"] copy];
-        _href    = [dictionary[@"collection"][@"href"] copy];
+        NSDictionary *collectionDictionary = dictionary[@"collection"];
         
-        NSMutableArray *links = [NSMutableArray arrayWithCapacity:[dictionary[@"collection"][@"links"] count]];
-        [dictionary[@"collection"][@"links"] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            DXGCJLink *link = [[DXGCJLink alloc] initWithDictionary:obj];
-            [links addObject:link];
-        }];
-        _links = [NSArray arrayWithArray:links];
-        
-        
+        _version = [collectionDictionary[@"version"] copy];
+        _href    = [collectionDictionary[@"href"] copy];
+
+        NSArray *linksArray = collectionDictionary[@"links"];
+        if (linksArray) {
+            NSMutableArray *links = [NSMutableArray arrayWithCapacity:[collectionDictionary[@"links"] count]];
+            [collectionDictionary[@"links"] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                DXGCJLink *link = [[DXGCJLink alloc] initWithDictionary:obj];
+                [links addObject:link];
+            }];
+            _links = [NSArray arrayWithArray:links];
+        }
+
+        NSDictionary *errorDictionary = collectionDictionary[@"error"];
+        if (errorDictionary) {
+            _error = [[DXGCJError alloc] initWithDictionary:errorDictionary];
+        }
     }
     
     return self;
@@ -94,15 +103,25 @@
             return nil;
         }
         
-        _version = [dictionary[@"collection"][@"version"] copy];
-        _href    = [dictionary[@"collection"][@"href"] copy];
+        NSDictionary *collectionDictionary = dictionary[@"collection"];
         
-        NSMutableArray *links = [NSMutableArray arrayWithCapacity:[dictionary[@"collection"][@"links"] count]];
-        [dictionary[@"collection"][@"links"] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            DXGCJLink *link = [[DXGCJLink alloc] initWithDictionary:obj];
-            [links addObject:link];
-        }];
-        _links = [NSArray arrayWithArray:links];
+        _version = [collectionDictionary[@"version"] copy];
+        _href    = [collectionDictionary[@"href"] copy];
+        
+        NSArray *linksArray = collectionDictionary[@"links"];
+        if (linksArray) {
+            NSMutableArray *links = [NSMutableArray arrayWithCapacity:[collectionDictionary[@"links"] count]];
+            [collectionDictionary[@"links"] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                DXGCJLink *link = [[DXGCJLink alloc] initWithDictionary:obj];
+                [links addObject:link];
+            }];
+            _links = [NSArray arrayWithArray:links];
+        }
+        
+        NSDictionary *errorDictionary = collectionDictionary[@"error"];
+        if (errorDictionary) {
+            _error = [[DXGCJError alloc] initWithDictionary:errorDictionary];
+        }
     }
     
     return self;

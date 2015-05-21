@@ -20,23 +20,18 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#import <Foundation/Foundation.h>
+#import "DXGCJError.h"
 
-@class DXGCJError;
+@implementation DXGCJError
 
-@interface DXGCJCollection : NSObject
-
-@property (copy,   nonatomic) NSString     *version;
-@property (copy,   nonatomic) NSString     *href;
-@property (strong, nonatomic) NSArray      *links;
-@property (strong, nonatomic) NSArray      *items;
-@property (strong, nonatomic) NSArray      *queries;
-@property (strong, nonatomic) DXGCJError   *error;
-
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary
-                             error:(NSError **)error;
-
-- (instancetype)initWithData:(NSData *)data
-                       error:(NSError **)error;
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    self = [super init];
+    if (self) {
+        _title   = [dictionary[@"title"] copy];
+        _code    = [dictionary[@"code"] copy];
+        _message = [dictionary[@"message"] copy];
+    }
+    return self;
+}
 
 @end
