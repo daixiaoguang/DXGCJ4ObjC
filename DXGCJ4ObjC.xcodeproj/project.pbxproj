@@ -10,6 +10,7 @@
 		B8B662881B0B3C7700C4F36D /* libDXGCJ4ObjC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8B6627C1B0B3C7700C4F36D /* libDXGCJ4ObjC.a */; };
 		B8B662981B0B3CB700C4F36D /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = B8B662971B0B3CB700C4F36D /* README.md */; };
 		B8B6629B1B0B3DF000C4F36D /* DXGCJCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B6629A1B0B3DF000C4F36D /* DXGCJCollection.m */; };
+		B8BFA9E81B0DB1EB00CF0003 /* DXGCJLink.m in Sources */ = {isa = PBXBuildFile; fileRef = B8BFA9E71B0DB1EB00CF0003 /* DXGCJLink.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 		B8B662971B0B3CB700C4F36D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B8B662991B0B3DF000C4F36D /* DXGCJCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXGCJCollection.h; sourceTree = "<group>"; };
 		B8B6629A1B0B3DF000C4F36D /* DXGCJCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXGCJCollection.m; sourceTree = "<group>"; };
+		B8BFA9E61B0DB1EB00CF0003 /* DXGCJLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXGCJLink.h; sourceTree = "<group>"; };
+		B8BFA9E71B0DB1EB00CF0003 /* DXGCJLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXGCJLink.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,8 @@
 			children = (
 				B8B662991B0B3DF000C4F36D /* DXGCJCollection.h */,
 				B8B6629A1B0B3DF000C4F36D /* DXGCJCollection.m */,
+				B8BFA9E61B0DB1EB00CF0003 /* DXGCJLink.h */,
+				B8BFA9E71B0DB1EB00CF0003 /* DXGCJLink.m */,
 			);
 			path = DXGCJ4ObjC;
 			sourceTree = "<group>";
@@ -196,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8BFA9E81B0DB1EB00CF0003 /* DXGCJLink.m in Sources */,
 				B8B662981B0B3CB700C4F36D /* README.md in Sources */,
 				B8B6629B1B0B3DF000C4F36D /* DXGCJCollection.m in Sources */,
 			);
@@ -366,6 +372,7 @@
 				B8B662921B0B3C7700C4F36D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B8B662931B0B3C7700C4F36D /* Build configuration list for PBXNativeTarget "DXGCJ4ObjCTests" */ = {
 			isa = XCConfigurationList;
@@ -374,6 +381,7 @@
 				B8B662951B0B3C7700C4F36D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

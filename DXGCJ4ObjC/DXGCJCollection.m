@@ -21,7 +21,91 @@
 // SOFTWARE.
 
 #import "DXGCJCollection.h"
+#import "DXGCJLink.h"
+
+@interface DXGCJCollection ()
+
+
+
+@property (strong, nonatomic) NSDictionary *template;
+@property (strong, nonatomic) NSDictionary *error;
+
+@end
 
 @implementation DXGCJCollection
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary
+                             error:(NSError **)error {
+    self = [super init];
+    if (self) {
+        if (![NSJSONSerialization isValidJSONObject:dictionary]) {
+            if (error) {
+                NSDictionary *errorInfo = @{ NSLocalizedDescriptionKey: @"Invalid JSON Object!" };
+                *error = [NSError errorWithDomain:@"Collection+JSON"
+                                             code:101
+                                         userInfo:errorInfo];
+            }
+            
+            return nil;
+        }
+        
+        _version = [dictionary[@"collection"][@"version"] copy];
+        _href    = [dictionary[@"collection"][@"href"] copy];
+        
+        NSMutableArray *links = [NSMutableArray arrayWithCapacity:[dictionary[@"collection"][@"links"] count]];
+        [dictionary[@"collection"][@"links"] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            DXGCJLink *link = [[DXGCJLink alloc] initWithDictionary:obj];
+            [links addObject:link];
+        }];
+        _links = [NSArray arrayWithArray:links];
+        
+        
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithData:(NSData *)data
+                       error:(NSError **)error {
+    self = [super init];
+    if (self) {
+        if (!data) {
+            if (error) {
+                NSDictionary *errorInfo = @{ NSLocalizedDescriptionKey: @"Empty Data!" };
+                *error = [NSError errorWithDomain:@"Collection+JSON"
+                                             code:101
+                                         userInfo:errorInfo];
+            }
+            
+            return nil;
+        }
+        
+        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data
+                                                                   options:kNilOptions
+                                                                     error:nil];
+        if (!dictionary) {
+            if (error) {
+                NSDictionary *errorInfo = @{ NSLocalizedDescriptionKey: @"Invalid JSON Object!" };
+                *error = [NSError errorWithDomain:@"Collection+JSON"
+                                             code:101
+                                         userInfo:errorInfo];
+            }
+            
+            return nil;
+        }
+        
+        _version = [dictionary[@"collection"][@"version"] copy];
+        _href    = [dictionary[@"collection"][@"href"] copy];
+        
+        NSMutableArray *links = [NSMutableArray arrayWithCapacity:[dictionary[@"collection"][@"links"] count]];
+        [dictionary[@"collection"][@"links"] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            DXGCJLink *link = [[DXGCJLink alloc] initWithDictionary:obj];
+            [links addObject:link];
+        }];
+        _links = [NSArray arrayWithArray:links];
+    }
+    
+    return self;
+}
 
 @end

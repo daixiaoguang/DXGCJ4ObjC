@@ -22,18 +22,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DXGCJCollection : NSObject
+@interface DXGCJLink : NSObject
 
-@property (copy,   nonatomic) NSString     *version;
-@property (copy,   nonatomic) NSString     *href;
-@property (strong, nonatomic) NSArray      *links;
-@property (strong, nonatomic) NSArray      *items;
-@property (strong, nonatomic) NSArray      *queries;
+@property (copy, nonatomic) NSString *href;
+@property (copy, nonatomic) NSString *rel;
+@property (copy, nonatomic) NSString *name;
+@property (copy, nonatomic) NSString *render;
+@property (copy, nonatomic) NSString *prompt;
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary
-                             error:(NSError **)error;
-
-- (instancetype)initWithData:(NSData *)data
-                       error:(NSError **)error;
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

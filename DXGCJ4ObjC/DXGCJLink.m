@@ -20,20 +20,20 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#import <Foundation/Foundation.h>
+#import "DXGCJLink.h"
 
-@interface DXGCJCollection : NSObject
+@implementation DXGCJLink
 
-@property (copy,   nonatomic) NSString     *version;
-@property (copy,   nonatomic) NSString     *href;
-@property (strong, nonatomic) NSArray      *links;
-@property (strong, nonatomic) NSArray      *items;
-@property (strong, nonatomic) NSArray      *queries;
-
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary
-                             error:(NSError **)error;
-
-- (instancetype)initWithData:(NSData *)data
-                       error:(NSError **)error;
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    self = [super init];
+    if (self) {
+        _href   = [dictionary[@"href"] copy];
+        _rel    = [dictionary[@"rel"] copy];
+        _name   = [dictionary[@"name"] copy];
+        _render = [dictionary[@"render"] copy];
+        _prompt = [dictionary[@"prompt"] copy];
+    }
+    return self;
+}
 
 @end
