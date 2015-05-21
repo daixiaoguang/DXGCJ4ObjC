@@ -26,11 +26,6 @@
 
 @interface DXGCJCollection ()
 
-
-
-@property (strong, nonatomic) NSDictionary *template;
-@property (strong, nonatomic) NSDictionary *error;
-
 @end
 
 @implementation DXGCJCollection
