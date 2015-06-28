@@ -24,16 +24,79 @@
 
 @implementation DXGCJLink
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
-    self = [super init];
-    if (self) {
-        _href   = [dictionary[@"href"] copy];
-        _rel    = [dictionary[@"rel"] copy];
-        _name   = [dictionary[@"name"] copy];
-        _render = [dictionary[@"render"] copy];
-        _prompt = [dictionary[@"prompt"] copy];
++ (NSArray *)linksWithCJDictionary:(NSDictionary *)dictionary
+                             error:(NSError **)error {
+    if (!dictionary) {
+        if (error) {
+            *error = [NSError errorWithDomain:@"Collection+JSON"
+                                         code:1101
+                                     userInfo:@{ NSLocalizedDescriptionKey: @"Empty collection dictionary!" }];
+        }
+        return nil;
     }
-    return self;
+    
+    if (!dictionary[@"links"] || [dictionary[@"links"] count] == 0) {
+        return nil;
+    }
+    
+    NSMutableArray *links = [NSMutableArray arrayWithCapacity:[dictionary[@"links"] count]];
+    __block NSError *internalError;
+    
+    [dictionary[@"links"] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        DXGCJLink *link = [DXGCJLink linkWithDictionary:obj error:&internalError];
+        if (internalError) {
+            *error = internalError;
+            *stop = YES;
+        } else {
+            [links addObject:link];
+        }
+    }];
+    
+    if (internalError) {
+        return nil;
+    }
+    
+    return links;
+}
+
++ (DXGCJLink *)linkWithDictionary:(NSDictionary *)dictionary
+                            error:(NSError **)error {
+    if (!dictionary || [dictionary count] == 0) {
+        if (error) {
+            *error = [NSError errorWithDomain:@"Collection+JSON"
+                                         code:1102
+                                     userInfo:@{ NSLocalizedDescriptionKey: @"No link object!" }];
+        }
+        return nil;
+    }
+    
+    if (!dictionary[@"href"]) {
+        if (error) {
+            *error = [NSError errorWithDomain:@"Collection+JSON"
+                                         code:1103
+                                     userInfo:@{ NSLocalizedDescriptionKey: @"No href property in link object!" }];
+        }
+        return nil;
+    }
+    
+    if (!dictionary[@"rel"]) {
+        if (error) {
+            *error = [NSError errorWithDomain:@"Collection+JSON"
+                                         code:1104
+                                     userInfo:@{ NSLocalizedDescriptionKey: @"No rel property in link object!" }];
+        }
+        return nil;
+    }
+    
+    DXGCJLink *link = [[DXGCJLink alloc] init];
+    
+    link.href   = dictionary[@"href"];
+    link.rel    = dictionary[@"rel"];
+    link.name   = dictionary[@"name"];
+    link.render = dictionary[@"render"];
+    link.prompt = dictionary[@"prompt"];
+    
+    return link;
 }
 
 @end

@@ -30,96 +30,87 @@
 
 @implementation DXGCJCollection
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary
-                             error:(NSError **)error {
-    self = [super init];
-    if (self) {
-        if (![NSJSONSerialization isValidJSONObject:dictionary]) {
-            if (error) {
-                NSDictionary *errorInfo = @{ NSLocalizedDescriptionKey: @"Invalid JSON Object!" };
-                *error = [NSError errorWithDomain:@"Collection+JSON"
-                                             code:101
-                                         userInfo:errorInfo];
-            }
-            
-            return nil;
++ (DXGCJCollection *)collectionWithData:(NSData *)data
+                                  error:(NSError **)error {
+    if (!data) {
+        if (error) {
+            *error = [NSError errorWithDomain:@"Collection+JSON"
+                                         code:1001
+                                     userInfo:@{ NSLocalizedDescriptionKey: @"Empty Data!" }];
         }
-        
-        NSDictionary *collectionDictionary = dictionary[@"collection"];
-        
-        _version = [collectionDictionary[@"version"] copy];
-        _href    = [collectionDictionary[@"href"] copy];
-
-        NSArray *linksArray = collectionDictionary[@"links"];
-        if (linksArray) {
-            NSMutableArray *links = [NSMutableArray arrayWithCapacity:[collectionDictionary[@"links"] count]];
-            [collectionDictionary[@"links"] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                DXGCJLink *link = [[DXGCJLink alloc] initWithDictionary:obj];
-                [links addObject:link];
-            }];
-            _links = [NSArray arrayWithArray:links];
-        }
-
-        NSDictionary *errorDictionary = collectionDictionary[@"error"];
-        if (errorDictionary) {
-            _error = [[DXGCJError alloc] initWithDictionary:errorDictionary];
-        }
+        return nil;
     }
     
-    return self;
-}
-
-- (instancetype)initWithData:(NSData *)data
-                       error:(NSError **)error {
-    self = [super init];
-    if (self) {
-        if (!data) {
-            if (error) {
-                NSDictionary *errorInfo = @{ NSLocalizedDescriptionKey: @"Empty Data!" };
-                *error = [NSError errorWithDomain:@"Collection+JSON"
-                                             code:101
-                                         userInfo:errorInfo];
-            }
-            
-            return nil;
+    NSError *internalError;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
+                                                         options:kNilOptions
+                                                           error:&internalError];
+    if (internalError) {
+        NSLog(@"%@", internalError);
+        if (error) {
+            *error = [NSError errorWithDomain:@"Collection+JSON"
+                                         code:1002
+                                     userInfo:@{ NSLocalizedDescriptionKey: @"Invalid JSON Object!" }];
         }
-        
-        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data
-                                                                   options:kNilOptions
-                                                                     error:nil];
-        if (!dictionary) {
-            if (error) {
-                NSDictionary *errorInfo = @{ NSLocalizedDescriptionKey: @"Invalid JSON Object!" };
-                *error = [NSError errorWithDomain:@"Collection+JSON"
-                                             code:101
-                                         userInfo:errorInfo];
-            }
-            
-            return nil;
-        }
-        
-        NSDictionary *collectionDictionary = dictionary[@"collection"];
-        
-        _version = [collectionDictionary[@"version"] copy];
-        _href    = [collectionDictionary[@"href"] copy];
-        
-        NSArray *linksArray = collectionDictionary[@"links"];
-        if (linksArray) {
-            NSMutableArray *links = [NSMutableArray arrayWithCapacity:[collectionDictionary[@"links"] count]];
-            [collectionDictionary[@"links"] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                DXGCJLink *link = [[DXGCJLink alloc] initWithDictionary:obj];
-                [links addObject:link];
-            }];
-            _links = [NSArray arrayWithArray:links];
-        }
-        
-        NSDictionary *errorDictionary = collectionDictionary[@"error"];
-        if (errorDictionary) {
-            _error = [[DXGCJError alloc] initWithDictionary:errorDictionary];
-        }
+        return nil;
     }
     
-    return self;
+    NSDictionary *cjDictionary = json[@"collection"];
+    if (cjDictionary) {
+        if (error) {
+            *error = [NSError errorWithDomain:@"Collection+JSON"
+                                         code:1003
+                                     userInfo:@{ NSLocalizedDescriptionKey: @"No collection object!" }];
+        }
+        return nil;
+    }
+    
+    DXGCJCollection *collection = [[DXGCJCollection alloc] init];
+    
+    // version property
+    collection.version = cjDictionary[@"version"];
+    if (!collection.version) {
+        if (error) {
+            *error = [NSError errorWithDomain:@"Collection+JSON"
+                                         code:1004
+                                     userInfo:@{ NSLocalizedDescriptionKey: @"No version property in collection object!" }];
+        }
+        return nil;
+    }
+    
+    // href property
+    collection.href = [NSURL URLWithString:cjDictionary[@"href"]];
+    if (!collection.href) {
+        if (error) {
+            *error = [NSError errorWithDomain:@"Collection+JSON"
+                                         code:1005
+                                     userInfo:@{ NSLocalizedDescriptionKey: @"No href property in collection object!" }];
+        }
+        return nil;
+    }
+
+    // links array
+    collection.links = [DXGCJLink linksWithCJDictionary:cjDictionary
+                                                  error:&internalError];
+    if (internalError) {
+        if (error) {
+            *error = internalError;
+        }
+        return nil;
+    }
+    
+    // error object
+    collection.error = [DXGCJError errorWithCJDictionary:cjDictionary
+                                                   error:&internalError];
+    if (internalError) {
+        if (error) {
+            *error = internalError;
+        }
+        return nil;
+    }
+    
+    
+    return collection;
 }
 
 @end

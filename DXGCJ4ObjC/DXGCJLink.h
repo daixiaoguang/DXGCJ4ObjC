@@ -30,6 +30,10 @@
 @property (copy, nonatomic) NSString *render;
 @property (copy, nonatomic) NSString *prompt;
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
++ (DXGCJLink *)linkWithDictionary:(NSDictionary *)dictionary
+                            error:(NSError **)error;
+
++ (NSArray *)linksWithCJDictionary:(NSDictionary *)dictionary
+                             error:(NSError **)error;
 
 @end

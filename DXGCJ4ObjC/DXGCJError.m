@@ -24,14 +24,24 @@
 
 @implementation DXGCJError
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
-    self = [super init];
-    if (self) {
-        _title   = [dictionary[@"title"] copy];
-        _code    = [dictionary[@"code"] copy];
-        _message = [dictionary[@"message"] copy];
++ (DXGCJError *)errorWithCJDictionary:(NSDictionary *)dictionary
+                                error:(NSError **)error {
+    if (!dictionary) {
+        if (error) {
+            *error = [NSError errorWithDomain:@"Collection+JSON"
+                                         code:1501
+                                     userInfo:@{ NSLocalizedDescriptionKey: @"Empty collection dictionary!" }];
+        }
+        return nil;
     }
-    return self;
+    
+    DXGCJError *cjError = [[DXGCJError alloc] init];
+    
+    cjError.title   = dictionary[@"error"][@"title"];
+    cjError.code    = dictionary[@"error"][@"code"];
+    cjError.message = dictionary[@"error"][@"message"];
+    
+    return cjError;
 }
 
 @end

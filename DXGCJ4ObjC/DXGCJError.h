@@ -28,6 +28,7 @@
 @property (copy, nonatomic) NSString *code;
 @property (copy, nonatomic) NSString *message;
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
++ (DXGCJError *)errorWithCJDictionary:(NSDictionary *)dictionary
+                                error:(NSError **)error;
 
 @end

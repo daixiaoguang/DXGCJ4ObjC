@@ -26,17 +26,14 @@
 
 @interface DXGCJCollection : NSObject
 
-@property (copy,   nonatomic) NSString     *version;
-@property (copy,   nonatomic) NSString     *href;
-@property (strong, nonatomic) NSArray      *links;
-@property (strong, nonatomic) NSArray      *items;
-@property (strong, nonatomic) NSArray      *queries;
-@property (strong, nonatomic) DXGCJError   *error;
+@property (copy,   nonatomic) NSString   *version;
+@property (strong, nonatomic) NSURL      *href;
+@property (strong, nonatomic) NSArray    *links;
+@property (strong, nonatomic) NSArray    *items;
+@property (strong, nonatomic) NSArray    *queries;
+@property (strong, nonatomic) DXGCJError *error;
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary
-                             error:(NSError **)error;
-
-- (instancetype)initWithData:(NSData *)data
-                       error:(NSError **)error;
++ (DXGCJCollection *)collectionWithData:(NSData *)data
+                                  error:(NSError **)error;
 
 @end

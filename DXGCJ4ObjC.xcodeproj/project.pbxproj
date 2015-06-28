@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B8B662881B0B3C7700C4F36D /* libDXGCJ4ObjC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8B6627C1B0B3C7700C4F36D /* libDXGCJ4ObjC.a */; };
-		B8B662981B0B3CB700C4F36D /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = B8B662971B0B3CB700C4F36D /* README.md */; };
 		B8B6629B1B0B3DF000C4F36D /* DXGCJCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B6629A1B0B3DF000C4F36D /* DXGCJCollection.m */; };
 		B8BFA9E81B0DB1EB00CF0003 /* DXGCJLink.m in Sources */ = {isa = PBXBuildFile; fileRef = B8BFA9E71B0DB1EB00CF0003 /* DXGCJLink.m */; };
 		B8BFA9EB1B0E130900CF0003 /* DXGCJError.m in Sources */ = {isa = PBXBuildFile; fileRef = B8BFA9EA1B0E130900CF0003 /* DXGCJError.m */; };
@@ -40,8 +39,6 @@
 		B8B6627C1B0B3C7700C4F36D /* libDXGCJ4ObjC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDXGCJ4ObjC.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B662871B0B3C7700C4F36D /* DXGCJ4ObjCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DXGCJ4ObjCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B6628D1B0B3C7700C4F36D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B8B662961B0B3CB700C4F36D /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		B8B662971B0B3CB700C4F36D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B8B662991B0B3DF000C4F36D /* DXGCJCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXGCJCollection.h; sourceTree = "<group>"; };
 		B8B6629A1B0B3DF000C4F36D /* DXGCJCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXGCJCollection.m; sourceTree = "<group>"; };
 		B8BFA9E61B0DB1EB00CF0003 /* DXGCJLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXGCJLink.h; sourceTree = "<group>"; };
@@ -72,8 +69,6 @@
 		B8B662731B0B3C7700C4F36D = {
 			isa = PBXGroup;
 			children = (
-				B8B662961B0B3CB700C4F36D /* LICENSE */,
-				B8B662971B0B3CB700C4F36D /* README.md */,
 				B8B6627E1B0B3C7700C4F36D /* DXGCJ4ObjC */,
 				B8B6628B1B0B3C7700C4F36D /* DXGCJ4ObjCTests */,
 				B8B6627D1B0B3C7700C4F36D /* Products */,
@@ -208,7 +203,6 @@
 			files = (
 				B8BFA9E81B0DB1EB00CF0003 /* DXGCJLink.m in Sources */,
 				B8BFA9EB1B0E130900CF0003 /* DXGCJError.m in Sources */,
-				B8B662981B0B3CB700C4F36D /* README.md in Sources */,
 				B8B6629B1B0B3DF000C4F36D /* DXGCJCollection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
